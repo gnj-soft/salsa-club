@@ -21,9 +21,11 @@
 ### Salsa lesson
 
 * id
+* lesson_name
 * level
 * duration
-* date
+* startDate
+* endDate
 
 ### Teacher
 
@@ -39,5 +41,12 @@
 * level
 
 ### Planing
+
+* id
+* lesson_id
+* teacher_id
+* member_id
+* note
+ 
 
 up to you
