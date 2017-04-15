@@ -1,19 +1,18 @@
 package gnj.soft.salsa.club.dao;
 
-import java.io.Serializable;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import gnj.soft.salsa.club.model.Teacher;
 
 /**
+ * This class is the data access object for {@link Teacher}
  * 
- * @author gnj_soft
+ * @author Ghislain N.
  */
-public interface TeacherDao extends JpaRepository<Teacher, Serializable> {
+public interface TeacherDao extends JpaRepository<Teacher, Long> {
 	
-	public Teacher getTeacherById(Long id);
+	public Teacher getTeacherByTeacherId(Long teacherId);
 	
-	public Teacher getTeacherByLastName(String name);
+	public Teacher getTeacherByLastName(String lastName);
 
 }

@@ -6,9 +6,9 @@ import javax.persistence.Id;
 
 /**
  * This class is a database mapping for Member table. It is part of salsa-club project.
- * For now I use {@link javax.persistence} instead of hybernate.
+ * For now I use {@link javax.persistence} instead of Hibernate.
  * 
- * @author gnj_soft
+ * @author Ghislain N.
  */
 @Entity
 public class Member {
@@ -20,14 +20,13 @@ public class Member {
 	@Column(nullable = false)
 	private String lastName;
 	@Column(nullable = false)
-	private int level;
+	private Integer level;
 	
 	public Member() {
-		super();
+		// Empty constructor
 	}
 
-	public Member(Long memberId, String firstName, String lastName, int level) {
-		super();
+	public Member(Long memberId, String firstName, String lastName, Integer level) {
 		this.memberId = memberId;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -58,11 +57,11 @@ public class Member {
 		this.lastName = lastName;
 	}
 
-	public int getLevel() {
+	public Integer getLevel() {
 		return level;
 	}
 
-	public void setLevel(int level) {
+	public void setLevel(Integer level) {
 		this.level = level;
 	}
 }

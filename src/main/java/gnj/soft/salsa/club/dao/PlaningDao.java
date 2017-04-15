@@ -1,6 +1,5 @@
 package gnj.soft.salsa.club.dao;
 
-import java.io.Serializable;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -8,16 +7,17 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import gnj.soft.salsa.club.model.Planing;
 
 /**
+ * This class is the data access object for {@link Planing}
  * 
- * @author gnj_soft
+ * @author Ghislain N.
  */
-public interface PlaningDao extends JpaRepository<Planing, Serializable> {
+public interface PlaningDao extends JpaRepository<Planing, Long> {
 
-	public Planing getPlaningById(Long id);
+	public Planing getPlaningByPlaningId(Long planingId);
 	
-	public List<Planing> getPlaningByLessonId(Long lessonId);
+	public List<Planing> getPlaningsByLessonId(Long lessonId);
 	
-	public List<Planing> getPlaningByTeacherId(Long teacherId);
+	public List<Planing> getPlaningsByTeacherId(Long teacherId);
 	
-	public List<Planing> getPlaningByMemberId(Long memberId);
+	public List<Planing> getPlaningsByMemberId(Long memberId);
 }

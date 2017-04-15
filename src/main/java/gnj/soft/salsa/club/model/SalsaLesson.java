@@ -8,9 +8,9 @@ import javax.persistence.Id;
 
 /**
  * This class is a database mapping for Lesson table. It is part of salsa-club project.
- * For now I use {@link javax.persistence} instead of hybernate.
+ * For now I use {@link javax.persistence} instead of Hibernate.
  * 
- * @author gnj_soft
+ * @author Ghislain N.
  */
 @Entity
 public class SalsaLesson {
@@ -20,20 +20,19 @@ public class SalsaLesson {
 	@Column
 	private String lessonName;
 	@Column(nullable = false)
-	private int lessonLevel;
+	private Integer lessonLevel;
 	@Column(nullable = false)
 	private Date startDate;
 	@Column(nullable = false)
 	private Date endDate;
 	@Column(nullable = false)
-	private int duration;
+	private Integer duration;
 	
 	public SalsaLesson() {
-		super();
+		//Empty constructor
 	}
 
-	public SalsaLesson(Long lessonId, String lessonName, int lessonLevel, Date startDate, Date endDate, int duration) {
-		super();
+	public SalsaLesson(Long lessonId, String lessonName, Integer lessonLevel, Date startDate, Date endDate, Integer duration) {
 		this.lessonId = lessonId;
 		this.lessonName = lessonName;
 		this.lessonLevel = lessonLevel;
@@ -50,11 +49,11 @@ public class SalsaLesson {
 		this.lessonId = lessonId;
 	}
 
-	public int getLessonLevel() {
+	public Integer getLessonLevel() {
 		return lessonLevel;
 	}
 
-	public void setLessonLevel(int lessonLevel) {
+	public void setLessonLevel(Integer lessonLevel) {
 		this.lessonLevel = lessonLevel;
 	}
 
@@ -74,11 +73,11 @@ public class SalsaLesson {
 		this.endDate = endDate;
 	}
 
-	public int getDuration() {
+	public Integer getDuration() {
 		return duration;
 	}
 
-	public void setDuration(int duration) {
+	public void setDuration(Integer duration) {
 		this.duration = duration;
 	}
 

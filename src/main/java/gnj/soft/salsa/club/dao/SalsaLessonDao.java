@@ -1,6 +1,5 @@
 package gnj.soft.salsa.club.dao;
 
-import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -9,16 +8,17 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import gnj.soft.salsa.club.model.SalsaLesson;
 
 /**
+ * This class is the data access object for {@link SalsaLesson}
  * 
- * @author gnj_soft
+ * @author Ghislain N.
  */
-public interface SalsaLessonDao extends JpaRepository<SalsaLesson, Serializable> {
+public interface SalsaLessonDao extends JpaRepository<SalsaLesson, Long> {
 	
-	public SalsaLesson getlessonById(Long id);
+	public SalsaLesson getlessonByLessonId(Long lessonId);
 	
-	public SalsaLesson getLessonByName(String name);
+	public SalsaLesson getLessonByLessonName(String lessonName);
 	
-	public List<SalsaLesson> getLessonsBylevel(int level);
+	public List<SalsaLesson> getLessonsByLessonLevel(Integer lessonLevel);
 	
 	public List<SalsaLesson> getStartedLessons(Date date);
 	

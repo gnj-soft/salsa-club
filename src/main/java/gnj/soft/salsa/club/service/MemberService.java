@@ -6,33 +6,40 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import gnj.soft.salsa.club.dao.MemberDao;
-import gnj.soft.salsa.club.dao.impl.MemberDaoImpl;
 import gnj.soft.salsa.club.model.Member;
 
 /**
+ * This class provides service according to salsa-club's members
  * 
- * @author gnj_soft
+ * @author Ghislain N.
  */
 @Component
 public class MemberService {
 	
 	@Autowired
-	private MemberDao memberDao = new MemberDaoImpl();
+	private MemberDao memberDao;
 	
 	public List<Member> getMembers() {
-		return memberDao.findAll();
+		return this.memberDao.findAll();
 	}
 	
-	public Member getMemberById(Long id) {
-		return memberDao.getMemberById(id);
+	public Member getMemberByMemberId(Long memberId) {
+		return this.memberDao.getMemberByMemberId(memberId);
 	}
 	
-	public Member getMemberByLastName(String name) {
-		return memberDao.getMemberByLastName(name);
+	public Member getMemberByLastName(String lastName) {
+		return this.memberDao.getMemberByLastName(lastName);
 	}
 	
-	public List<Member> getMembersByLevel(int level) {
-		return memberDao.getMembersByLevel(level);
+	public List<Member> getMembersByLevel(Integer level) {
+		return this.memberDao.getMembersByLevel(level);
 	}
-
+	
+	public boolean isMemberExist(Long memberId) {
+		return this.memberDao.exists(memberId);
+	}
+	
+	public long countExistingMembers() {
+		return this.memberDao.count();
+	}
 }

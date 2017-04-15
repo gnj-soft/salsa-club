@@ -7,9 +7,9 @@ import javax.persistence.Id;
 
 /**
  * This class is a database mapping for Planing table. It is part of salsa-club project.
- * For now I use {@link javax.persistence} instead of hybernate.
+ * For now I use {@link javax.persistence} instead of Hibernate.
  * 
- * @author gnj_soft
+ * @author Ghislain N.
  */
 @Entity
 public class Planing {
@@ -26,11 +26,10 @@ public class Planing {
 	private String note;
 		
 	public Planing() {
-		super();
+		//Empty constructor
 	}
 
 	public Planing(Long planingId, Long lessonId, Long teacherId, Long memberId, String note) {
-		super();
 		this.planingId = planingId;
 		this.lessonId = lessonId;
 		this.teacherId = teacherId;

@@ -9,8 +9,9 @@ import gnj.soft.salsa.club.dao.TeacherDao;
 import gnj.soft.salsa.club.model.Teacher;
 
 /**
+ * This class provides service according to salsa-club's teachers
  * 
- * @author gnj_soft
+ * @author Ghislain N.
  */
 @Component
 public class TeacherService {
@@ -19,15 +20,22 @@ public class TeacherService {
 	private TeacherDao teacherDao;
 	
 	public List<Teacher> getTeachers() {
-		return teacherDao.findAll();
+		return this.teacherDao.findAll();
 	}
 	
-	public Teacher getTeacherById(Long id) {
-		return teacherDao.getTeacherById(id);
+	public Teacher getTeacherByTeacherId(Long teacherid) {
+		return this.teacherDao.getTeacherByTeacherId(teacherid);
 	}
 	
-	public Teacher getTeacherByLastName(String name) {
-		return teacherDao.getTeacherByLastName(name);
+	public Teacher getTeacherByLastName(String lastName) {
+		return this.teacherDao.getTeacherByLastName(lastName);
 	}
-
+	
+	public boolean isTeacherExist(Long teacherId) {
+		return this.teacherDao.exists(teacherId);
+	}
+	
+	public long countExistingTeachers() {
+		return this.teacherDao.count();
+	}
 }

@@ -6,9 +6,9 @@ import javax.persistence.Id;
 
 /**
  * This class is a database mapping for Teacher table. It is part of salsa-club project.
- * For now I use {@link javax.persistence} instead of hybernate.
+ * For now I use {@link javax.persistence} instead of Hibernate.
  * 
- * @author gnj_soft
+ * @author Ghislain N.
  */
 @Entity
 public class Teacher {
@@ -21,11 +21,10 @@ public class Teacher {
 	private String lastName;
 	
 	public Teacher() {
-		super();
+		//Empty constructor
 	}
 
 	public Teacher(Long teacherId, String firstName, String lastName) {
-		super();
 		this.teacherId = teacherId;
 		this.firstName = firstName;
 		this.lastName = lastName;

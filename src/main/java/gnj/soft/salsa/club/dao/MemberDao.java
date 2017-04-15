@@ -1,6 +1,5 @@
 package gnj.soft.salsa.club.dao;
 
-import java.io.Serializable;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -8,14 +7,15 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import gnj.soft.salsa.club.model.Member;
 
 /**
+ * This class is the data access object for {@link Member}
  * 
- * @author gnj_soft
+ * @author Ghislain N.
  */
-public interface MemberDao extends JpaRepository<Member, Serializable> {
+public interface MemberDao extends JpaRepository<Member, Long> {
 
-	public Member getMemberById(Long id);
+	public Member getMemberByMemberId(Long memberId);
 	
-	public Member getMemberByLastName(String name);
+	public Member getMemberByLastName(String lastName);
 	
-	public List<Member> getMembersByLevel(int level);
+	public List<Member> getMembersByLevel(Integer level);
 }
