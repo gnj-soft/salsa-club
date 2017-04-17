@@ -1,6 +1,5 @@
 package gnj.soft.salsa.club.dao;
 
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -14,13 +13,13 @@ import gnj.soft.salsa.club.model.SalsaLesson;
  */
 public interface SalsaLessonDao extends JpaRepository<SalsaLesson, Long> {
 	
-	public SalsaLesson getlessonByLessonId(Long lessonId);
+	public SalsaLesson getSalsaLessonByLessonId(Long lessonId);
 	
-	public SalsaLesson getLessonByLessonName(String lessonName);
+	public SalsaLesson getSalsaLessonByLessonName(String lessonName);
 	
-	public List<SalsaLesson> getLessonsByLessonLevel(Integer lessonLevel);
+	public List<SalsaLesson> getSalsaLessonsByLessonLevel(Integer lessonLevel);
 	
-	public List<SalsaLesson> getStartedLessons(Date date);
+	//public List<SalsaLesson> getStartedLessons(Date date);
 	
-	public List<SalsaLesson> getEndLessons(Date date);
+	//public List<SalsaLesson> getEndLessons(Date date);
 }

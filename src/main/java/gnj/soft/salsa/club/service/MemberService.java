@@ -42,4 +42,8 @@ public class MemberService {
 	public long countExistingMembers() {
 		return this.memberDao.count();
 	}
+
+	public void save(Member member) {
+		this.memberDao.save(member);
+	}
 }

@@ -46,4 +46,8 @@ public class PlaningService {
 	public long countExistingPlanings() {
 		return this.planingDao.count();
 	}
+
+	public void save(Long planingId, Long lessonId, Long teacherId, Long memberId, String note) {
+		this.planingDao.save(new Planing(planingId, lessonId, teacherId, memberId, note));	
+	}
 }
