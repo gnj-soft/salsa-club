@@ -5,8 +5,7 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 
 /**
- * Hello world!
- *
+ * Salsa-club management!
  */
 @EnableAutoConfiguration
 @ComponentScan("gnj.soft.salsa.club")

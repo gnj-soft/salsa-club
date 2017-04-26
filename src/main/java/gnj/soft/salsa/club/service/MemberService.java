@@ -46,4 +46,8 @@ public class MemberService {
 	public void save(Member member) {
 		this.memberDao.save(member);
 	}
+
+	public void deleteMember(Long id) {
+		this.memberDao.delete(id);
+	}
 }
