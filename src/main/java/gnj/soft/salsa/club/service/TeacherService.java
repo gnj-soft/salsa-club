@@ -38,4 +38,12 @@ public class TeacherService {
 	public long countExistingTeachers() {
 		return this.teacherDao.count();
 	}
+
+	public void save(Teacher teacher) {
+		this.teacherDao.save(teacher);
+	}
+
+	public void delete(Long id) {
+		this.teacherDao.delete(id);
+	}
 }

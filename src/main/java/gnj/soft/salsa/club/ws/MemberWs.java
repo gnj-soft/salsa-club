@@ -3,6 +3,7 @@ package gnj.soft.salsa.club.ws;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,7 +25,7 @@ import gnj.soft.salsa.club.service.MemberService;
 public class MemberWs {
 
 	@Autowired
-	public MemberService memberService;
+	private MemberService memberService;
 	
 	@GetMapping("")
 	public List<Member> getMembers() {
@@ -32,16 +33,17 @@ public class MemberWs {
 	}
 	
 	@PostMapping("")
-	public void addMember(Member member) {
+	public void addMember(@RequestBody Member member) {
 		this.memberService.save(member);
 	}
 	
-	@PutMapping("{id}")
+	@PutMapping("")
 	public void updateMember(@RequestBody Member member) {
 		this.memberService.save(member);
 	}
 	
-	public void deleteMember(Long id) {
+	@DeleteMapping("{id}")
+	public void deleteMember(@PathVariable Long id) {
 		this.memberService.deleteMember(id);
 	}
 	

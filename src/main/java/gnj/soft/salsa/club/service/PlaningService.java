@@ -50,4 +50,12 @@ public class PlaningService {
 	public void save(Long planingId, Long lessonId, Long teacherId, Long memberId, String note) {
 		this.planingDao.save(new Planing(planingId, lessonId, teacherId, memberId, note));	
 	}
+
+	public void save(Planing planing) {
+		this.planingDao.save(planing);
+	}
+
+	public void deleteMember(Long id) {
+		this.planingDao.delete(id);
+	}
 }

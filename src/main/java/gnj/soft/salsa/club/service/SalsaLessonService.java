@@ -46,4 +46,16 @@ public class SalsaLessonService {
 	public long countExistingLessons() {
 		return this.salsaLessonDao.count();
 	}
+
+	public void deleteSalsaLesson(Long id) {
+		this.salsaLessonDao.delete(id);
+	}
+
+	public void save(SalsaLesson salsaLesson) {
+		this.salsaLessonDao.save(salsaLesson);
+	}
+
+	public List<SalsaLesson> getLessons() {
+		return this.salsaLessonDao.findAll();
+	}
 }
