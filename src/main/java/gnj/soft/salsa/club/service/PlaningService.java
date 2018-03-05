@@ -3,7 +3,7 @@ package gnj.soft.salsa.club.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import gnj.soft.salsa.club.dao.PlaningDao;
 import gnj.soft.salsa.club.model.Planing;
@@ -13,7 +13,7 @@ import gnj.soft.salsa.club.model.Planing;
  * 
  * @author Ghislain N.
  */
-@Component
+@Service
 public class PlaningService {
 	
 	@Autowired

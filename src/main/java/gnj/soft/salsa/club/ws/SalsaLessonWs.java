@@ -28,7 +28,7 @@ public class SalsaLessonWs {
 	private SalsaLessonService salsaLessonService;
 	
 	@PostMapping("")
-	public void addSalsaLesson(SalsaLesson lesson) {
+	public void addSalsaLesson(@RequestBody SalsaLesson lesson) {
 		this.salsaLessonService.save(lesson);
 	}
 	

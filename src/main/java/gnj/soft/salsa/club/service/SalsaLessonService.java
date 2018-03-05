@@ -3,7 +3,7 @@ package gnj.soft.salsa.club.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import gnj.soft.salsa.club.dao.SalsaLessonDao;
 import gnj.soft.salsa.club.model.SalsaLesson;
@@ -13,7 +13,7 @@ import gnj.soft.salsa.club.model.SalsaLesson;
  * 
  * @author Ghislain N.
  */
-@Component
+@Service
 public class SalsaLessonService {
 	
 	@Autowired
@@ -30,14 +30,6 @@ public class SalsaLessonService {
 	public List<SalsaLesson> getLessonsByLessonLevel(Integer lessonLevel) {
 		return this.salsaLessonDao.getSalsaLessonsByLessonLevel(lessonLevel);
 	}
-	
-/*	public List<SalsaLesson> getStartedLessons(Date date) {
-		return this.salsaLessonDao.getStartedLessons(date);
-	}
-	
-	public List<SalsaLesson> getEndLessons(Date date) {
-		return this.salsaLessonDao.getEndLessons(date);
-	}*/
 	
 	public boolean isSalsaLessonExist(Long lessonId) {
 		return this.salsaLessonDao.exists(lessonId);

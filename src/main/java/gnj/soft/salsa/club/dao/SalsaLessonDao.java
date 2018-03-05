@@ -18,8 +18,4 @@ public interface SalsaLessonDao extends JpaRepository<SalsaLesson, Long> {
 	public SalsaLesson getSalsaLessonByLessonName(String lessonName);
 	
 	public List<SalsaLesson> getSalsaLessonsByLessonLevel(Integer lessonLevel);
-	
-	//public List<SalsaLesson> getStartedLessons(Date date);
-	
-	//public List<SalsaLesson> getEndLessons(Date date);
 }
