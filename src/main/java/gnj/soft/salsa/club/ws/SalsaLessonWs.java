@@ -21,32 +21,32 @@ import gnj.soft.salsa.club.service.SalsaLessonService;
  * @author Ghislain N
  */
 @RestController
-@RequestMapping("salsa-lessons")
+@RequestMapping("lessons")
 public class SalsaLessonWs {
 
 	@Autowired
 	private SalsaLessonService salsaLessonService;
-	
+
 	@PostMapping("")
-	public void addSalsaLesson(@RequestBody SalsaLesson lesson) {
-		this.salsaLessonService.save(lesson);
+	public SalsaLesson addSalsaLesson(@RequestBody SalsaLesson lesson) {
+		return this.salsaLessonService.save(lesson);
 	}
-	
+
 	@GetMapping("")
 	public List<SalsaLesson> getSalsaLessons() {
 		return this.salsaLessonService.getLessons();
 	}
-	
+
 	@GetMapping("{id}")
 	public SalsaLesson getSalsaLessonById(@PathVariable Long id) {
 		return this.salsaLessonService.getLessonByLessonId(id);
 	}
-	
+
 	@PutMapping("")
-	public void updateSalsaLesson(@RequestBody SalsaLesson salsaLesson) {
-		this.salsaLessonService.save(salsaLesson);
+	public SalsaLesson updateSalsaLesson(@RequestBody SalsaLesson salsaLesson) {
+		return this.salsaLessonService.save(salsaLesson);
 	}
-	
+
 	@DeleteMapping("{id}")
 	public void deleteSalsaLesson(@PathVariable Long id) {
 		this.salsaLessonService.deleteSalsaLesson(id);

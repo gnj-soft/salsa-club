@@ -26,27 +26,27 @@ public class MemberWs {
 
 	@Autowired
 	private MemberService memberService;
-	
+
 	@GetMapping("")
 	public List<Member> getMembers() {
 		return this.memberService.getMembers();
 	}
-	
+
 	@PostMapping("")
-	public void addMember(@RequestBody Member member) {
-		this.memberService.save(member);
+	public Member addMember(@RequestBody Member member) {
+		return this.memberService.save(member);
 	}
-	
+
 	@PutMapping("")
-	public void updateMember(@RequestBody Member member) {
-		this.memberService.save(member);
+	public Member updateMember(@RequestBody Member member) {
+		return this.memberService.save(member);
 	}
-	
+
 	@DeleteMapping("{id}")
 	public void deleteMember(@PathVariable Long id) {
 		this.memberService.deleteMember(id);
 	}
-	
+
 	@GetMapping("{id}")
 	public Member getMemberById(@PathVariable Long id) {
 		return this.memberService.getMemberByMemberId(id);

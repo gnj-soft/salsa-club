@@ -15,47 +15,47 @@ import gnj.soft.salsa.club.model.Planing;
  */
 @Service
 public class PlaningService {
-	
+
 	@Autowired
 	private PlaningDao planingDao;
-	
+
 	public List<Planing> getPlanings() {
 		return this.planingDao.findAll();
 	}
-	
+
 	public Planing getPlaningByPlaningId(Long planingId) {
 		return this.planingDao.getPlaningByPlaningId(planingId);
 	}
-	
+
 	public List<Planing> getPlaningsByLessonId(Long lessonId) {
 		return this.planingDao.getPlaningsByLessonId(lessonId);
 	}
-	
+
 	public List<Planing> getPlaningsByTeacherId(Long teacherId) {
 		return this.planingDao.getPlaningsByTeacherId(teacherId);
 	}
-	
+
 	public List<Planing> getPlaningsByMemberId(Long memberId) {
 		return this.planingDao.getPlaningsByMemberId(memberId);
 	}
-	
+
 	public boolean isPlaningExist(Long planingId) {
 		return this.planingDao.exists(planingId);
 	}
-	
+
 	public long countExistingPlanings() {
 		return this.planingDao.count();
 	}
 
-	public void save(Long planingId, Long lessonId, Long teacherId, Long memberId, String note) {
-		this.planingDao.save(new Planing(planingId, lessonId, teacherId, memberId, note));	
+	public Planing save(Long planingId, Long lessonId, Long teacherId, Long memberId, String note) {
+		return this.planingDao.save(new Planing(planingId, lessonId, teacherId, memberId, note));
 	}
 
-	public void save(Planing planing) {
-		this.planingDao.save(planing);
+	public Planing save(Planing planing) {
+		return this.planingDao.save(planing);
 	}
 
-	public void deleteMember(Long id) {
+	public void deletePlaning(Long id) {
 		this.planingDao.delete(id);
 	}
 }

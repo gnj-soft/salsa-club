@@ -23,32 +23,32 @@ import gnj.soft.salsa.club.service.PlaningService;
 @RestController
 @RequestMapping("planings")
 public class PlaningWs {
-	
+
 	@Autowired
 	private PlaningService planingService;
-	
+
 	@PostMapping("")
-	public void addPlaning(@RequestBody Planing planing) {
-		this.planingService.save(planing);
+	public Planing addPlaning(@RequestBody Planing planing) {
+		return this.planingService.save(planing);
 	}
-	
+
 	@GetMapping("")
 	public List<Planing> getPlanings() {
 		return this.planingService.getPlanings();
 	}
-	
+
 	@GetMapping("{id}")
 	public Planing getPlaningById(@PathVariable Long id) {
 		return this.planingService.getPlaningByPlaningId(id);
 	}
-	
+
 	@PutMapping("")
-	public void updatePlaning(@RequestBody Planing planing) {
-		this.planingService.save(planing);
+	public Planing updatePlaning(@RequestBody Planing planing) {
+		return this.planingService.save(planing);
 	}
-	
+
 	@DeleteMapping("{id}")
 	public void deletePlaning(@PathVariable Long id) {
-		this.planingService.deleteMember(id);
+		this.planingService.deletePlaning(id);
 	}
 }

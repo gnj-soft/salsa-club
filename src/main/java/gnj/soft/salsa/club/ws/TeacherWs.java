@@ -26,27 +26,27 @@ public class TeacherWs {
 
 	@Autowired
 	private TeacherService teacherService;
-	
+
 	@PostMapping("")
-	public void addTeacher(@RequestBody Teacher teacher) {
-		this.teacherService.save(teacher);
+	public Teacher addTeacher(@RequestBody Teacher teacher) {
+		return this.teacherService.save(teacher);
 	}
-	
+
 	@GetMapping("")
 	public List<Teacher> getTeachers() {
 		return this.teacherService.getTeachers();
 	}
-	
+
 	@GetMapping("{id}")
 	public Teacher getTeacherById(@PathVariable Long id) {
 		return this.teacherService.getTeacherByTeacherId(id);
 	}
-	
+
 	@PutMapping("")
-	public void updateTeacher(@RequestBody Teacher teacher) {
-		this.teacherService.save(teacher);
+	public Teacher updateTeacher(@RequestBody Teacher teacher) {
+		return this.teacherService.save(teacher);
 	}
-	
+
 	@DeleteMapping("{id}")
 	public void deleteTeacher(@PathVariable Long id) {
 		this.teacherService.delete(id);

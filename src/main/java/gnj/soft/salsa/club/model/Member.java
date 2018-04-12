@@ -6,9 +6,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
- * This class is a database mapping for Member table. It is part of salsa-club project.
- * For now I use {@link javax.persistence} instead of Hibernate.
+ * This class is a database mapping for Member table. It is part of salsa-club
+ * project. For now I use {@link javax.persistence} instead of Hibernate.
  * 
  * @author Ghislain N.
  */
@@ -16,7 +18,8 @@ import javax.persistence.Id;
 public class Member {
 
 	@Id
-	//@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@JsonProperty("id")
 	private Long memberId;
 	@Column(nullable = false)
 	private String firstName;
@@ -24,7 +27,7 @@ public class Member {
 	private String lastName;
 	@Column(nullable = false)
 	private Integer level;
-	
+
 	public Member() {
 		// Empty constructor
 	}

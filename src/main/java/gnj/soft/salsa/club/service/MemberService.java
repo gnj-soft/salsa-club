@@ -15,36 +15,36 @@ import gnj.soft.salsa.club.model.Member;
  */
 @Service
 public class MemberService {
-	
+
 	@Autowired
 	private MemberDao memberDao;
-	
+
 	public List<Member> getMembers() {
 		return this.memberDao.findAll();
 	}
-	
+
 	public Member getMemberByMemberId(Long memberId) {
 		return this.memberDao.getMemberByMemberId(memberId);
 	}
-	
+
 	public Member getMemberByLastName(String lastName) {
 		return this.memberDao.getMemberByLastName(lastName);
 	}
-	
+
 	public List<Member> getMembersByLevel(Integer level) {
 		return this.memberDao.getMembersByLevel(level);
 	}
-	
+
 	public boolean isMemberExist(Long memberId) {
 		return this.memberDao.exists(memberId);
 	}
-	
+
 	public long countExistingMembers() {
 		return this.memberDao.count();
 	}
 
-	public void save(Member member) {
-		this.memberDao.save(member);
+	public Member save(Member member) {
+		return this.memberDao.save(member);
 	}
 
 	public void deleteMember(Long id) {

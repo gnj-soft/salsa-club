@@ -50,3 +50,9 @@
  
 
 up to you
+
+
+## Docker
+launch Docker 
+
+docker run -d -p 8180:8080 gnj.soft/salsa-club

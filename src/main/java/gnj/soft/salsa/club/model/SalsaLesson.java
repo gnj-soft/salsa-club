@@ -4,22 +4,29 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
- * This class is a database mapping for Lesson table. It is part of salsa-club project.
- * For now I use {@link javax.persistence} instead of Hibernate.
+ * This class is a database mapping for Lesson table. It is part of salsa-club
+ * project. For now I use {@link javax.persistence} instead of Hibernate.
  * 
  * @author Ghislain N.
  */
 @Entity
 public class SalsaLesson {
-	
+
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@JsonProperty("id")
 	private Long lessonId;
 	@Column
 	private String lessonName;
 	@Column(nullable = false)
+	@JsonProperty("level")
 	private Integer lessonLevel;
 	@Column(nullable = false)
 	private Date startDate;
@@ -27,12 +34,13 @@ public class SalsaLesson {
 	private Date endDate;
 	@Column(nullable = false)
 	private Integer duration;
-	
+
 	public SalsaLesson() {
-		//Empty constructor
+		// Empty constructor
 	}
 
-	public SalsaLesson(Long lessonId, String lessonName, Integer lessonLevel, Date startDate, Date endDate, Integer duration) {
+	public SalsaLesson(Long lessonId, String lessonName, Integer lessonLevel, Date startDate, Date endDate,
+			Integer duration) {
 		this.lessonId = lessonId;
 		this.lessonName = lessonName;
 		this.lessonLevel = lessonLevel;
