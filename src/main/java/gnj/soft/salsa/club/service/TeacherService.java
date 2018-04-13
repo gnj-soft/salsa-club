@@ -1,6 +1,7 @@
 package gnj.soft.salsa.club.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,8 +24,8 @@ public class TeacherService {
 		return this.teacherDao.findAll();
 	}
 
-	public Teacher getTeacherByTeacherId(Long teacherid) {
-		return this.teacherDao.getTeacherByTeacherId(teacherid);
+	public Optional<Teacher> getTeacherByTeacherId(Long teacherid) {
+		return Optional.ofNullable(this.teacherDao.getTeacherByTeacherId(teacherid));
 	}
 
 	public Teacher getTeacherByLastName(String lastName) {

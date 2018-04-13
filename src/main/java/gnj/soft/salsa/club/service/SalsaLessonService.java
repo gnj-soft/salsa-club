@@ -1,6 +1,7 @@
 package gnj.soft.salsa.club.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,8 +20,8 @@ public class SalsaLessonService {
 	@Autowired
 	private SalsaLessonDao salsaLessonDao;
 
-	public SalsaLesson getLessonByLessonId(Long lessonId) {
-		return this.salsaLessonDao.getSalsaLessonByLessonId(lessonId);
+	public Optional<SalsaLesson> getLessonByLessonId(Long lessonId) {
+		return Optional.ofNullable(this.salsaLessonDao.getSalsaLessonByLessonId(lessonId));
 	}
 
 	public SalsaLesson getLessonByLessonName(String lessonName) {

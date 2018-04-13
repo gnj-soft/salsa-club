@@ -1,6 +1,8 @@
 package gnj.soft.salsa.club.ws;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -29,7 +31,9 @@ public class MemberWs {
 
 	@GetMapping("")
 	public List<Member> getMembers() {
-		return this.memberService.getMembers();
+		List<Member> members = this.memberService.getMembers();
+		return members.stream().sorted(Comparator.comparing(Member::getLastName).thenComparing(Member::getFirstName))
+				.collect(Collectors.toList());
 	}
 
 	@PostMapping("")

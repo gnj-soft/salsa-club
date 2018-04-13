@@ -1,6 +1,8 @@
 package gnj.soft.salsa.club.ws;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -34,12 +36,14 @@ public class TeacherWs {
 
 	@GetMapping("")
 	public List<Teacher> getTeachers() {
-		return this.teacherService.getTeachers();
+		List<Teacher> teachers = this.teacherService.getTeachers();
+		return teachers.stream().sorted(Comparator.comparing(Teacher::getLastName).thenComparing(Teacher::getFirstName))
+				.collect(Collectors.toList());
 	}
 
 	@GetMapping("{id}")
 	public Teacher getTeacherById(@PathVariable Long id) {
-		return this.teacherService.getTeacherByTeacherId(id);
+		return this.teacherService.getTeacherByTeacherId(id).get();
 	}
 
 	@PutMapping("")
