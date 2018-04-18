@@ -53,6 +53,6 @@ public class TeacherWs {
 
 	@DeleteMapping("{id}")
 	public void deleteTeacher(@PathVariable Long id) {
-		this.teacherService.delete(id);
+		this.teacherService.deleteTeacherById(id);
 	}
 }

@@ -54,6 +54,6 @@ public class SalsaLessonWs {
 
 	@DeleteMapping("{id}")
 	public void deleteSalsaLesson(@PathVariable Long id) {
-		this.salsaLessonService.deleteSalsaLesson(id);
+		this.salsaLessonService.deleteSalsaLessonById(id);
 	}
 }

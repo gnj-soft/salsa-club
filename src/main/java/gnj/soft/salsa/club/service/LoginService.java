@@ -39,12 +39,12 @@ public class LoginService {
 		return this.loginDao.save(login);
 	}
 
-	public void deleteLogin(Long id) {
-		this.loginDao.delete(id);
+	public void deleteLoginById(Long id) {
+		this.loginDao.deleteById(id);
 	}
 
 	public boolean isLoginExist(Long id) {
-		return this.loginDao.exists(id);
+		return this.loginDao.existsById(id);
 	}
 
 	public long countExistingLogin() {

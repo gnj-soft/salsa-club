@@ -33,15 +33,15 @@ public class SalsaLessonService {
 	}
 
 	public boolean isSalsaLessonExist(Long lessonId) {
-		return this.salsaLessonDao.exists(lessonId);
+		return this.salsaLessonDao.existsById(lessonId);
 	}
 
 	public long countExistingLessons() {
 		return this.salsaLessonDao.count();
 	}
 
-	public void deleteSalsaLesson(Long id) {
-		this.salsaLessonDao.delete(id);
+	public void deleteSalsaLessonById(Long id) {
+		this.salsaLessonDao.deleteById(id);
 	}
 
 	public SalsaLesson save(SalsaLesson salsaLesson) {

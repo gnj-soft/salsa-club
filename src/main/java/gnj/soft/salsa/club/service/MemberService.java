@@ -36,7 +36,7 @@ public class MemberService {
 	}
 
 	public boolean isMemberExist(Long memberId) {
-		return this.memberDao.exists(memberId);
+		return this.memberDao.existsById(memberId);
 	}
 
 	public long countExistingMembers() {
@@ -47,7 +47,7 @@ public class MemberService {
 		return this.memberDao.save(member);
 	}
 
-	public void deleteMember(Long id) {
-		this.memberDao.delete(id);
+	public void deleteMemberById(Long id) {
+		this.memberDao.deleteById(id);
 	}
 }

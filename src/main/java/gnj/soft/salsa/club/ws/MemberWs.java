@@ -48,7 +48,7 @@ public class MemberWs {
 
 	@DeleteMapping("{id}")
 	public void deleteMember(@PathVariable Long id) {
-		this.memberService.deleteMember(id);
+		this.memberService.deleteMemberById(id);
 	}
 
 	@GetMapping("{id}")

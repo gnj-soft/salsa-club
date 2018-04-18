@@ -33,7 +33,7 @@ public class TeacherService {
 	}
 
 	public boolean isTeacherExist(Long teacherId) {
-		return this.teacherDao.exists(teacherId);
+		return this.teacherDao.existsById(teacherId);
 	}
 
 	public long countExistingTeachers() {
@@ -44,7 +44,7 @@ public class TeacherService {
 		return this.teacherDao.save(teacher);
 	}
 
-	public void delete(Long id) {
-		this.teacherDao.delete(id);
+	public void deleteTeacherById(Long id) {
+		this.teacherDao.deleteById(id);
 	}
 }

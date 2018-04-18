@@ -40,7 +40,7 @@ public class PlaningService {
 	}
 
 	public boolean isPlaningExist(Long planingId) {
-		return this.planingDao.exists(planingId);
+		return this.planingDao.existsById(planingId);
 	}
 
 	public long countExistingPlanings() {
@@ -55,7 +55,7 @@ public class PlaningService {
 		return this.planingDao.save(planing);
 	}
 
-	public void deletePlaning(Long id) {
-		this.planingDao.delete(id);
+	public void deletePlaningById(Long id) {
+		this.planingDao.deleteById(id);
 	}
 }

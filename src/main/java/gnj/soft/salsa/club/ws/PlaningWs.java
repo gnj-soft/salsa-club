@@ -79,6 +79,6 @@ public class PlaningWs {
 
 	@DeleteMapping("{id}")
 	public void deletePlaning(@PathVariable Long id) {
-		this.planingService.deletePlaning(id);
+		this.planingService.deletePlaningById(id);
 	}
 }
