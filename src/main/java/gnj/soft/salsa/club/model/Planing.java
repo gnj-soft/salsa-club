@@ -1,10 +1,18 @@
 package gnj.soft.salsa.club.model;
 
+import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -15,33 +23,30 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @author Ghislain N.
  */
 @Entity
-public class Planing {
+public class Planing implements Serializable {
+
+	private static final long serialVersionUID = 2515219900810749758L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@JsonProperty("id")
 	private Long planingId;
-	@Column(nullable = false)
-	private Long lessonId;
-	@Column(nullable = false)
-	private Long teacherId;
-	@Column(nullable = false)
-	private Long memberId;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "planing")
+	private Set<Member> members = new HashSet<>(0);
+	@OneToOne
+	@JoinColumn(name = "lesson_id")
+	private Lesson lesson;
 	@Column
 	private String note;
-	private String lessonName;
-	private String teacherFirstName;
-	private String teacherLastName;
 
 	public Planing() {
 		// Empty constructor
 	}
 
-	public Planing(Long planingId, Long lessonId, Long teacherId, Long memberId, String note) {
+	public Planing(Long planingId, Set<Member> members, Lesson lesson, String note) {
 		this.planingId = planingId;
-		this.lessonId = lessonId;
-		this.teacherId = teacherId;
-		this.memberId = memberId;
+		this.members = members;
+		this.lesson = lesson;
 		this.note = note;
 	}
 
@@ -53,28 +58,20 @@ public class Planing {
 		this.planingId = planingId;
 	}
 
-	public Long getLessonId() {
-		return lessonId;
+	public Set<Member> getMembers() {
+		return members;
 	}
 
-	public void setLessonId(Long lessonId) {
-		this.lessonId = lessonId;
+	public void setMembers(Set<Member> members) {
+		this.members = members;
 	}
 
-	public Long getTeacherId() {
-		return teacherId;
+	public Lesson getLesson() {
+		return lesson;
 	}
 
-	public void setTeacherId(Long teacherId) {
-		this.teacherId = teacherId;
-	}
-
-	public Long getMemberId() {
-		return memberId;
-	}
-
-	public void setMemberId(Long memberId) {
-		this.memberId = memberId;
+	public void setLesson(Lesson lesson) {
+		this.lesson = lesson;
 	}
 
 	public String getNote() {
@@ -83,29 +80,5 @@ public class Planing {
 
 	public void setNote(String note) {
 		this.note = note;
-	}
-
-	public String getLessonName() {
-		return lessonName;
-	}
-
-	public void setLessonName(String lessonName) {
-		this.lessonName = lessonName;
-	}
-
-	public String getTeacherFirstName() {
-		return teacherFirstName;
-	}
-
-	public void setTeacherFirstName(String teacherFirstName) {
-		this.teacherFirstName = teacherFirstName;
-	}
-
-	public String getTeacherLastName() {
-		return teacherLastName;
-	}
-
-	public void setTeacherLastName(String teacherLastName) {
-		this.teacherLastName = teacherLastName;
 	}
 }

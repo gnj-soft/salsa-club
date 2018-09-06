@@ -1,12 +1,17 @@
 package gnj.soft.salsa.club.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -17,7 +22,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @author Ghislain N.
  */
 @Entity
-public class SalsaLesson {
+public class Lesson implements Serializable {
+
+	private static final long serialVersionUID = 1806661410073950587L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -28,6 +35,11 @@ public class SalsaLesson {
 	@Column(nullable = false)
 	@JsonProperty("level")
 	private Integer lessonLevel;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "teacher_id", nullable = false)
+	private Teacher teacher;
+	@OneToOne(mappedBy = "lesson")
+	private Planing planing;
 	@Column(nullable = false)
 	private Date startDate;
 	@Column(nullable = false)
@@ -35,15 +47,17 @@ public class SalsaLesson {
 	@Column(nullable = false)
 	private Integer duration;
 
-	public SalsaLesson() {
+	public Lesson() {
 		// Empty constructor
 	}
 
-	public SalsaLesson(Long lessonId, String lessonName, Integer lessonLevel, Date startDate, Date endDate,
-			Integer duration) {
+	public Lesson(Long lessonId, String lessonName, Integer lessonLevel, Teacher teacher, Planing planing,
+			Date startDate, Date endDate, Integer duration) {
 		this.lessonId = lessonId;
 		this.lessonName = lessonName;
 		this.lessonLevel = lessonLevel;
+		this.teacher = teacher;
+		this.planing = planing;
 		this.startDate = startDate;
 		this.endDate = endDate;
 		this.duration = duration;
@@ -63,6 +77,22 @@ public class SalsaLesson {
 
 	public void setLessonLevel(Integer lessonLevel) {
 		this.lessonLevel = lessonLevel;
+	}
+
+	public Teacher getTeacher() {
+		return teacher;
+	}
+
+	public void setTeacher(Teacher teacher) {
+		this.teacher = teacher;
+	}
+
+	public Planing getPlaning() {
+		return planing;
+	}
+
+	public void setPlaning(Planing planing) {
+		this.planing = planing;
 	}
 
 	public Date getStartDate() {

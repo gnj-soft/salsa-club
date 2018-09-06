@@ -1,10 +1,16 @@
 package gnj.soft.salsa.club.model;
 
+import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -15,7 +21,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @author Ghislain N.
  */
 @Entity
-public class Teacher {
+public class Teacher implements Serializable {
+
+	private static final long serialVersionUID = -6750085381586973066L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,6 +33,8 @@ public class Teacher {
 	private String firstName;
 	@Column(nullable = false)
 	private String lastName;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "teacher")
+	private Set<Lesson> lessons = new HashSet<>(0);
 	@Column
 	private String info;
 
@@ -32,10 +42,11 @@ public class Teacher {
 		// Empty constructor
 	}
 
-	public Teacher(Long teacherId, String firstName, String lastName, String info) {
+	public Teacher(Long teacherId, String firstName, String lastName, Set<Lesson> lessons, String info) {
 		this.teacherId = teacherId;
 		this.firstName = firstName;
 		this.lastName = lastName;
+		this.lessons = lessons;
 		this.info = info;
 	}
 
@@ -61,6 +72,14 @@ public class Teacher {
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+
+	public Set<Lesson> getLessons() {
+		return lessons;
+	}
+
+	public void setLessons(Set<Lesson> lessons) {
+		this.lessons = lessons;
 	}
 
 	public String getInfo() {

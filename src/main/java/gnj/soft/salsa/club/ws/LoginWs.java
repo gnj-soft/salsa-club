@@ -15,7 +15,7 @@ import gnj.soft.salsa.club.model.Login;
 import gnj.soft.salsa.club.service.LoginService;
 
 /**
- * This class provides web services for Salsa-club members
+ * This class provides web services for Salsa-club login
  * 
  * @author Ghislain N
  */

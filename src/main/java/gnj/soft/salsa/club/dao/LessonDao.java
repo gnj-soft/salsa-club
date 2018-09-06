@@ -4,18 +4,18 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import gnj.soft.salsa.club.model.SalsaLesson;
+import gnj.soft.salsa.club.model.Lesson;
 
 /**
- * This class is the data access object for {@link SalsaLesson}
+ * This class is the data access object for {@link Lesson}
  * 
  * @author Ghislain N.
  */
-public interface SalsaLessonDao extends JpaRepository<SalsaLesson, Long> {
+public interface LessonDao extends JpaRepository<Lesson, Long> {
 
-	public SalsaLesson getSalsaLessonByLessonId(Long lessonId);
+	public Lesson getLessonByLessonId(Long lessonId);
 
-	public SalsaLesson getSalsaLessonByLessonName(String lessonName);
+	public Lesson getLessonByLessonName(String lessonName);
 
-	public List<SalsaLesson> getSalsaLessonsByLessonLevel(Integer lessonLevel);
+	public List<Lesson> getLessonsByLessonLevel(Integer lessonLevel);
 }
